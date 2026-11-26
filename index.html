@@ -35,10 +35,9 @@
 </head>
 <body class="min-h-screen antialiased selection:bg-violet-600 selection:text-white">
 
-  <!-- PANTALLA DE AUTENTICACIÓN (LOGIN / REGISTRO) -->
+  <!-- PANTALLA DE AUTENTICACIÓN -->
   <div id="auth-screen" class="min-h-screen flex items-center justify-center p-4">
     <div class="w-full max-w-md card rounded-2xl p-8 vortyx-glow">
-      <!-- Logo VORTYX -->
       <div class="flex flex-col items-center mb-8">
         <div class="flex items-center gap-3 mb-2">
           <svg class="w-12 h-12" viewBox="0 0 100 100" fill="none">
@@ -61,10 +60,10 @@
 
       <!-- Pestañas Login / Registro -->
       <div class="grid grid-cols-2 gap-2 p-1 bg-zinc-900 rounded-xl mb-6 border border-zinc-800">
-        <button id="tab-login" onclick="switchAuthTab('login')" class="py-2.5 text-sm font-semibold rounded-lg bg-violet-600 text-white transition">
+        <button type="button" id="tab-login" onclick="switchAuthTab('login')" class="py-2.5 text-sm font-semibold rounded-lg bg-violet-600 text-white transition cursor-pointer">
           Iniciar Sesión
         </button>
-        <button id="tab-register" onclick="switchAuthTab('register')" class="py-2.5 text-sm font-semibold rounded-lg text-zinc-400 hover:text-white transition">
+        <button type="button" id="tab-register" onclick="switchAuthTab('register')" class="py-2.5 text-sm font-semibold rounded-lg text-zinc-400 hover:text-white transition cursor-pointer">
           Crear Cuenta
         </button>
       </div>
@@ -74,7 +73,7 @@
         <div>
           <label class="block text-xs font-medium text-zinc-400 mb-1.5">Usuario</label>
           <input id="auth-user" type="text" required minlength="3" autocomplete="username"
-            placeholder="Ej. tacos_vtx"
+            placeholder="Ej. tacos"
             class="w-full px-4 py-3 rounded-xl bg-zinc-900 border border-zinc-800 text-white placeholder-zinc-500 focus:outline-none focus:border-violet-500 transition" />
         </div>
         <div>
@@ -87,7 +86,7 @@
         <p id="auth-error" class="hidden text-xs text-red-400 bg-red-950/50 border border-red-900 rounded-lg p-3"></p>
 
         <button id="auth-submit" type="submit"
-          class="w-full py-3.5 rounded-xl bg-violet-600 hover:bg-violet-500 text-white font-semibold transition shadow-lg shadow-violet-600/20">
+          class="w-full py-3.5 rounded-xl bg-violet-600 hover:bg-violet-500 text-white font-semibold transition shadow-lg shadow-violet-600/20 cursor-pointer">
           Entrar a VORTYX
         </button>
       </form>
@@ -96,7 +95,6 @@
 
   <!-- APLICACIÓN PRINCIPAL -->
   <div id="app-screen" class="hidden min-h-screen flex flex-col">
-    <!-- Barra Superior -->
     <header class="sticky top-0 z-30 bg-[#09090b]/90 backdrop-blur-md border-b border-zinc-800">
       <div class="max-w-6xl mx-auto px-4 py-3 flex flex-col sm:flex-row items-center justify-between gap-3">
         <div class="flex items-center justify-between w-full sm:w-auto">
@@ -110,36 +108,31 @@
           </div>
           <div class="flex items-center gap-2 sm:hidden">
             <span id="mobile-user" class="text-xs text-violet-400 font-medium"></span>
-            <button onclick="logout()" class="text-xs text-zinc-400 hover:text-red-400 px-2 py-1 rounded-lg border border-zinc-800">Salir</button>
+            <button type="button" onclick="logout()" class="text-xs text-zinc-400 hover:text-red-400 px-2 py-1 rounded-lg border border-zinc-800">Salir</button>
           </div>
         </div>
 
-        <!-- Navegación -->
         <nav class="flex flex-wrap items-center justify-center gap-1 text-xs sm:text-sm">
-          <button onclick="showSection('dashboard')" id="nav-dashboard" class="nav-btn active px-3 py-1.5 rounded-lg text-zinc-400 hover:text-white transition">Dashboard</button>
-          <button onclick="showSection('wallet')" id="nav-wallet" class="nav-btn px-3 py-1.5 rounded-lg text-zinc-400 hover:text-white transition">Wallet</button>
-          <button onclick="showSection('buy')" id="nav-buy" class="nav-btn px-3 py-1.5 rounded-lg text-zinc-400 hover:text-white transition">Comprar</button>
-          <button onclick="showSection('sell')" id="nav-sell" class="nav-btn px-3 py-1.5 rounded-lg text-zinc-400 hover:text-white transition">Vender</button>
-          <button onclick="showSection('swap')" id="nav-swap" class="nav-btn px-3 py-1.5 rounded-lg text-zinc-400 hover:text-white transition">Intercambiar</button>
-          <button onclick="showSection('history')" id="nav-history" class="nav-btn px-3 py-1.5 rounded-lg text-zinc-400 hover:text-white transition">Historial</button>
+          <button type="button" onclick="showSection('dashboard')" id="nav-dashboard" class="nav-btn active px-3 py-1.5 rounded-lg text-zinc-400 hover:text-white transition">Dashboard</button>
+          <button type="button" onclick="showSection('wallet')" id="nav-wallet" class="nav-btn px-3 py-1.5 rounded-lg text-zinc-400 hover:text-white transition">Wallet</button>
+          <button type="button" onclick="showSection('buy')" id="nav-buy" class="nav-btn px-3 py-1.5 rounded-lg text-zinc-400 hover:text-white transition">Comprar</button>
+          <button type="button" onclick="showSection('sell')" id="nav-sell" class="nav-btn px-3 py-1.5 rounded-lg text-zinc-400 hover:text-white transition">Vender</button>
+          <button type="button" onclick="showSection('swap')" id="nav-swap" class="nav-btn px-3 py-1.5 rounded-lg text-zinc-400 hover:text-white transition">Intercambiar</button>
+          <button type="button" onclick="showSection('history')" id="nav-history" class="nav-btn px-3 py-1.5 rounded-lg text-zinc-400 hover:text-white transition">Historial</button>
         </nav>
 
         <div class="hidden sm:flex items-center gap-3">
           <span id="desktop-user" class="text-xs font-medium text-violet-300 bg-violet-950/60 border border-violet-800/60 px-3 py-1.5 rounded-full"></span>
-          <button onclick="logout()" class="text-xs text-zinc-400 hover:text-red-400 transition font-medium">Salir</button>
+          <button type="button" onclick="logout()" class="text-xs text-zinc-400 hover:text-red-400 transition font-medium">Salir</button>
         </div>
       </div>
     </header>
 
-    <!-- Notificación Toast -->
     <div id="toast" class="fixed bottom-5 right-5 z-50 hidden px-5 py-3 rounded-xl text-sm font-medium shadow-2xl border transition-all"></div>
 
-    <!-- Contenido Principal -->
     <main class="max-w-6xl w-full mx-auto px-4 py-6 flex-1 space-y-6">
-
-      <!-- SECCIÓN: DASHBOARD -->
+      <!-- DASHBOARD -->
       <section id="sec-dashboard" class="space-y-6">
-        <!-- Portafolio Total -->
         <div class="card rounded-2xl p-6 bg-gradient-to-br from-[#161224] via-[#121217] to-[#121217] border-violet-900/40">
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
@@ -148,13 +141,13 @@
               <p class="text-xs text-zinc-400 mt-2">Saldo disponible en MXN: <span id="dash-mxn" class="text-white font-semibold">$0.00 MXN</span></p>
             </div>
             <div class="flex items-center gap-2">
-              <button onclick="showSection('buy')" class="px-4 py-2.5 rounded-xl bg-violet-600 hover:bg-violet-500 text-sm font-semibold text-white transition">Comprar</button>
-              <button onclick="showSection('swap')" class="px-4 py-2.5 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-sm font-semibold text-white transition">Intercambiar</button>
+              <button type="button" onclick="showSection('buy')" class="px-4 py-2.5 rounded-xl bg-violet-600 hover:bg-violet-500 text-sm font-semibold text-white transition">Comprar</button>
+              <button type="button" onclick="showSection('swap')" class="px-4 py-2.5 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-sm font-semibold text-white transition">Intercambiar</button>
             </div>
           </div>
         </div>
 
-        <!-- Gráfica Profesional de Velas en Tiempo Real -->
+        <!-- Gráfica Profesional de Velas -->
         <div class="card rounded-2xl p-5">
           <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
             <div>
@@ -170,12 +163,11 @@
               </div>
             </div>
 
-            <!-- Selector de Criptomoneda para Gráfica -->
             <div class="flex flex-wrap gap-2">
-              <button onclick="selectChartCoin('BTC')" id="ctab-BTC" class="coin-tab active px-3.5 py-1.5 rounded-lg text-xs font-bold border border-zinc-800 text-zinc-300 transition">BTC</button>
-              <button onclick="selectChartCoin('ETH')" id="ctab-ETH" class="coin-tab px-3.5 py-1.5 rounded-lg text-xs font-bold border border-zinc-800 text-zinc-300 transition">ETH</button>
-              <button onclick="selectChartCoin('SOL')" id="ctab-SOL" class="coin-tab px-3.5 py-1.5 rounded-lg text-xs font-bold border border-zinc-800 text-zinc-300 transition">SOL</button>
-              <button onclick="selectChartCoin('USDT')" id="ctab-USDT" class="coin-tab px-3.5 py-1.5 rounded-lg text-xs font-bold border border-zinc-800 text-zinc-300 transition">USDT</button>
+              <button type="button" onclick="selectChartCoin('BTC')" id="ctab-BTC" class="coin-tab active px-3.5 py-1.5 rounded-lg text-xs font-bold border border-zinc-800 text-zinc-300 transition">BTC</button>
+              <button type="button" onclick="selectChartCoin('ETH')" id="ctab-ETH" class="coin-tab px-3.5 py-1.5 rounded-lg text-xs font-bold border border-zinc-800 text-zinc-300 transition">ETH</button>
+              <button type="button" onclick="selectChartCoin('SOL')" id="ctab-SOL" class="coin-tab px-3.5 py-1.5 rounded-lg text-xs font-bold border border-zinc-800 text-zinc-300 transition">SOL</button>
+              <button type="button" onclick="selectChartCoin('USDT')" id="ctab-USDT" class="coin-tab px-3.5 py-1.5 rounded-lg text-xs font-bold border border-zinc-800 text-zinc-300 transition">USDT</button>
             </div>
           </div>
 
@@ -183,7 +175,7 @@
           <p class="text-[11px] text-zinc-500 mt-2.5">Gráfica de velas japonesas (1m) • Arrastra para moverte o usa el scroll para hacer zoom.</p>
         </div>
 
-        <!-- Mercado en Tiempo Real -->
+        <!-- Mercado -->
         <div>
           <div class="flex items-center justify-between mb-3">
             <h3 class="text-base font-bold text-white">Mercado en tiempo real</h3>
@@ -193,7 +185,7 @@
         </div>
       </section>
 
-      <!-- SECCIÓN: WALLET -->
+      <!-- WALLET -->
       <section id="sec-wallet" class="hidden space-y-4">
         <div class="card rounded-2xl p-6">
           <h2 class="text-xl font-bold text-white mb-1">Wallet</h2>
@@ -202,14 +194,13 @@
         </div>
       </section>
 
-      <!-- SECCIÓN: COMPRAR -->
+      <!-- COMPRAR -->
       <section id="sec-buy" class="hidden max-w-lg mx-auto">
         <div class="card rounded-2xl p-6 space-y-5">
           <div>
             <h2 class="text-xl font-bold text-white">Comprar Criptomonedas</h2>
             <p class="text-xs text-zinc-400 mt-1">Saldo disponible: <span id="buy-mxn-avail" class="text-violet-400 font-semibold"></span></p>
           </div>
-
           <div>
             <label class="block text-xs text-zinc-400 mb-1.5">Selecciona criptomoneda</label>
             <select id="buy-coin" onchange="updateBuyPreview()" class="w-full px-4 py-3 rounded-xl bg-zinc-900 border border-zinc-800 text-white focus:outline-none focus:border-violet-500">
@@ -219,7 +210,6 @@
               <option value="USDT">Tether (USDT)</option>
             </select>
           </div>
-
           <div>
             <label class="block text-xs text-zinc-400 mb-1.5">Monto a invertir (MXN)</label>
             <input id="buy-amount" type="number" min="1" step="any" oninput="updateBuyPreview()" placeholder="Ej. 1000"
@@ -231,24 +221,21 @@
               <button type="button" onclick="setBuyPct(1)" class="py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-xs text-violet-400 font-semibold">MAX</button>
             </div>
           </div>
-
           <div class="p-4 rounded-xl bg-zinc-900/80 border border-zinc-800 space-y-2 text-sm">
             <div class="flex justify-between"><span class="text-zinc-400">Recibirás aprox.</span><span id="buy-receive" class="font-bold text-white">0.000000 BTC</span></div>
             <div class="flex justify-between"><span class="text-zinc-400">Comisión VORTYX</span><span class="font-semibold text-emerald-400">$0.00 MXN (0%)</span></div>
           </div>
-
-          <button onclick="executeBuy()" class="w-full py-3.5 rounded-xl bg-violet-600 hover:bg-violet-500 text-white font-semibold transition">Confirmar Compra</button>
+          <button type="button" onclick="executeBuy()" class="w-full py-3.5 rounded-xl bg-violet-600 hover:bg-violet-500 text-white font-semibold transition">Confirmar Compra</button>
         </div>
       </section>
 
-      <!-- SECCIÓN: VENDER -->
+      <!-- VENDER -->
       <section id="sec-sell" class="hidden max-w-lg mx-auto">
         <div class="card rounded-2xl p-6 space-y-5">
           <div>
             <h2 class="text-xl font-bold text-white">Vender Criptomonedas</h2>
             <p class="text-xs text-zinc-400 mt-1">Disponible en cartera: <span id="sell-coin-avail" class="text-violet-400 font-semibold"></span></p>
           </div>
-
           <div>
             <label class="block text-xs text-zinc-400 mb-1.5">Criptomoneda a vender</label>
             <select id="sell-coin" onchange="updateSellPreview()" class="w-full px-4 py-3 rounded-xl bg-zinc-900 border border-zinc-800 text-white focus:outline-none focus:border-violet-500">
@@ -258,7 +245,6 @@
               <option value="USDT">Tether (USDT)</option>
             </select>
           </div>
-
           <div>
             <label class="block text-xs text-zinc-400 mb-1.5">Cantidad a vender</label>
             <input id="sell-amount" type="number" min="0" step="any" oninput="updateSellPreview()" placeholder="Ej. 0.001"
@@ -270,24 +256,21 @@
               <button type="button" onclick="setSellPct(1)" class="py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-xs text-violet-400 font-semibold">MAX</button>
             </div>
           </div>
-
           <div class="p-4 rounded-xl bg-zinc-900/80 border border-zinc-800 space-y-2 text-sm">
             <div class="flex justify-between"><span class="text-zinc-400">Recibirás en MXN</span><span id="sell-receive" class="font-bold text-white">$0.00 MXN</span></div>
             <div class="flex justify-between"><span class="text-zinc-400">Comisión VORTYX</span><span class="font-semibold text-emerald-400">$0.00 MXN (0%)</span></div>
           </div>
-
-          <button onclick="executeSell()" class="w-full py-3.5 rounded-xl bg-violet-600 hover:bg-violet-500 text-white font-semibold transition">Confirmar Venta</button>
+          <button type="button" onclick="executeSell()" class="w-full py-3.5 rounded-xl bg-violet-600 hover:bg-violet-500 text-white font-semibold transition">Confirmar Venta</button>
         </div>
       </section>
 
-      <!-- SECCIÓN: INTERCAMBIAR (SWAP) -->
+      <!-- INTERCAMBIAR -->
       <section id="sec-swap" class="hidden max-w-lg mx-auto">
         <div class="card rounded-2xl p-6 space-y-5">
           <div>
             <h2 class="text-xl font-bold text-white">Intercambiar (Swap)</h2>
             <p class="text-xs text-zinc-400 mt-1">Cambia una criptomoneda por otra al instante sin comisiones.</p>
           </div>
-
           <div class="grid grid-cols-2 gap-3">
             <div>
               <label class="block text-xs text-zinc-400 mb-1.5">De</label>
@@ -308,7 +291,6 @@
               </select>
             </div>
           </div>
-
           <div>
             <div class="flex justify-between text-xs text-zinc-400 mb-1.5">
               <span>Cantidad a intercambiar</span>
@@ -320,17 +302,15 @@
               <button type="button" onclick="setSwapMax()" class="px-4 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-xs font-bold text-violet-400">MAX</button>
             </div>
           </div>
-
           <div class="p-4 rounded-xl bg-zinc-900/80 border border-zinc-800 space-y-2 text-sm">
             <div class="flex justify-between"><span class="text-zinc-400">Recibirás</span><span id="swap-receive" class="font-bold text-white">0.000000 ETH</span></div>
             <div class="flex justify-between"><span class="text-zinc-400">Comisión de red / Swap</span><span class="font-semibold text-emerald-400">$0.00 MXN (0%)</span></div>
           </div>
-
-          <button onclick="executeSwap()" class="w-full py-3.5 rounded-xl bg-violet-600 hover:bg-violet-500 text-white font-semibold transition">Intercambiar Ahora</button>
+          <button type="button" onclick="executeSwap()" class="w-full py-3.5 rounded-xl bg-violet-600 hover:bg-violet-500 text-white font-semibold transition">Intercambiar Ahora</button>
         </div>
       </section>
 
-      <!-- SECCIÓN: HISTORIAL -->
+      <!-- HISTORIAL -->
       <section id="sec-history" class="hidden">
         <div class="card rounded-2xl p-6">
           <h2 class="text-xl font-bold text-white mb-1">Historial de Operaciones</h2>
@@ -338,12 +318,10 @@
           <div id="history-list" class="divide-y divide-zinc-800"></div>
         </div>
       </section>
-
     </main>
   </div>
 
   <script>
-    // ================= ESTADO GLOBAL =================
     const USD_TO_MXN = 20.15;
     const COINS = {
       BTC:  { name: 'Bitcoin',  symbol: 'BTC',  binance: 'BTCUSDT',  price: 1850000, change: 2.15, icon: '₿' },
@@ -361,26 +339,25 @@
     let candlesStore = {};
     let liveInterval = null;
 
-    // ================= UTILIDADES =================
     const fmtMXN = (n) => '$' + Number(n || 0).toLocaleString('es-MX', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' MXN';
     const fmtCrypto = (n, dec = 6) => Number(n || 0).toFixed(dec).replace(/\.?0+$/, '') || '0';
 
     function showToast(msg, isError = false) {
       const t = document.getElementById('toast');
       t.textContent = msg;
-      t.className = `fixed bottom-5 right-5 z-50 px-5 py-3 rounded-xl text-sm font-medium shadow-2xl border ${
-        isError ? 'bg-red-950/95 border-red-800 text-red-200' : 'bg-zinc-900/95 border-violet-600 text-white'
-      }`;
+      t.className = 'fixed bottom-5 right-5 z-50 px-5 py-3 rounded-xl text-sm font-medium shadow-2xl border ' +
+        (isError ? 'bg-red-950/95 border-red-800 text-red-200' : 'bg-zinc-900/95 border-violet-600 text-white');
       t.classList.remove('hidden');
       setTimeout(() => t.classList.add('hidden'), 3200);
     }
 
-    // ================= AUTENTICACIÓN (LOCALSTORAGE) =================
     function getUsers() {
-      return JSON.parse(localStorage.getItem('vortyx_users') || '{}');
+      try { return JSON.parse(localStorage.getItem('vortyx_users') || '{}'); }
+      catch (e) { return {}; }
     }
     function saveUsers(users) {
-      localStorage.setItem('vortyx_users', JSON.stringify(users));
+      try { localStorage.setItem('vortyx_users', JSON.stringify(users)); }
+      catch (e) {}
     }
 
     function switchAuthTab(mode) {
@@ -391,12 +368,12 @@
       const btn = document.getElementById('auth-submit');
 
       if (mode === 'login') {
-        tabLogin.className = 'py-2.5 text-sm font-semibold rounded-lg bg-violet-600 text-white transition';
-        tabReg.className = 'py-2.5 text-sm font-semibold rounded-lg text-zinc-400 hover:text-white transition';
+        tabLogin.className = 'py-2.5 text-sm font-semibold rounded-lg bg-violet-600 text-white transition cursor-pointer';
+        tabReg.className = 'py-2.5 text-sm font-semibold rounded-lg text-zinc-400 hover:text-white transition cursor-pointer';
         btn.textContent = 'Entrar a VORTYX';
       } else {
-        tabReg.className = 'py-2.5 text-sm font-semibold rounded-lg bg-violet-600 text-white transition';
-        tabLogin.className = 'py-2.5 text-sm font-semibold rounded-lg text-zinc-400 hover:text-white transition';
+        tabReg.className = 'py-2.5 text-sm font-semibold rounded-lg bg-violet-600 text-white transition cursor-pointer';
+        tabLogin.className = 'py-2.5 text-sm font-semibold rounded-lg text-zinc-400 hover:text-white transition cursor-pointer';
         btn.textContent = 'Crear Cuenta';
       }
     }
@@ -415,8 +392,8 @@
           return;
         }
         users[username] = {
-          username,
-          password,
+          username: username,
+          password: password,
           mxn: 15000,
           balances: { BTC: 0, ETH: 0, SOL: 0, USDT: 0 },
           history: []
@@ -436,7 +413,7 @@
 
     function loginSuccess(username) {
       currentUser = username;
-      localStorage.setItem('vortyx_session', username);
+      try { localStorage.setItem('vortyx_session', username); } catch (e) {}
       document.getElementById('auth-screen').classList.add('hidden');
       document.getElementById('app-screen').classList.remove('hidden');
       document.getElementById('desktop-user').textContent = '@' + username;
@@ -446,7 +423,7 @@
 
     function logout() {
       currentUser = null;
-      localStorage.removeItem('vortyx_session');
+      try { localStorage.removeItem('vortyx_session'); } catch (e) {}
       if (liveInterval) clearInterval(liveInterval);
       document.getElementById('app-screen').classList.add('hidden');
       document.getElementById('auth-screen').classList.remove('hidden');
@@ -464,7 +441,6 @@
       renderAll();
     }
 
-    // ================= NAVEGACIÓN =================
     function showSection(name) {
       ['dashboard', 'wallet', 'buy', 'sell', 'swap', 'history'].forEach((s) => {
         document.getElementById('sec-' + s).classList.add('hidden');
@@ -478,7 +454,6 @@
       renderAll();
     }
 
-    // ================= DATOS EN TIEMPO REAL + GRÁFICA =================
     function generateFallbackCandles(basePrice, count = 60) {
       const now = Math.floor(Date.now() / 1000);
       const start = now - count * 60;
@@ -505,7 +480,7 @@
         return;
       }
       try {
-        const res = await fetch(https://api.binance.com/api/v3/klines?symbol=${coin.binance}&interval=1m&limit=60);
+        const res = await fetch('https://api.binance.com/api/v3/klines?symbol=' + coin.binance + '&interval=1m&limit=60');
         const data = await res.json();
         const candles = data.map((k) => ({
           time: Math.floor(k[0] / 1000),
@@ -528,6 +503,8 @@
     function initChart() {
       const container = document.getElementById('tv-chart');
       container.innerHTML = '';
+      if (typeof LightweightCharts === 'undefined') return;
+
       chart = LightweightCharts.createChart(container, {
         layout: {
           background: { type: 'solid', color: '#0c0c10' },
@@ -578,22 +555,19 @@
       const data = candlesStore[selectedChartCoin] || [];
       if (!data.length || !candleSeries) return;
 
-      document.getElementById('chart-title').textContent = ${coin.name} (${coin.symbol} / MXN);
+      document.getElementById('chart-title').textContent = coin.name + ' (' + coin.symbol + ' / MXN)';
       document.getElementById('chart-price').textContent = fmtMXN(coin.price);
       const chEl = document.getElementById('chart-change');
       chEl.textContent = (coin.change >= 0 ? '+' : '') + coin.change.toFixed(2) + '%';
-      chEl.className = `text-xs font-semibold px-2 py-0.5 rounded-md ${
-        coin.change >= 0 ? 'bg-emerald-950 text-emerald-400' : 'bg-red-950 text-red-400'
-      }`;
+      chEl.className = 'text-xs font-semibold px-2 py-0.5 rounded-md ' +
+        (coin.change >= 0 ? 'bg-emerald-950 text-emerald-400' : 'bg-red-950 text-red-400');
 
-      candleSeries.setData(data.map(({ time, open, high, low, close }) => ({ time, open, high, low, close })));
-      volumeSeries.setData(
-        data.map((c) => ({
-          time: c.time,
-          value: c.volume,
-          color: c.close >= c.open ? 'rgba(16, 185, 129, 0.28)' : 'rgba(239, 68, 68, 0.28)'
-        }))
-      );
+      candleSeries.setData(data.map((c) => ({ time: c.time, open: c.open, high: c.high, low: c.low, close: c.close })));
+      volumeSeries.setData(data.map((c) => ({
+        time: c.time,
+        value: c.volume,
+        color: c.close >= c.open ? 'rgba(16, 185, 129, 0.28)' : 'rgba(239, 68, 68, 0.28)'
+      })));
       chart.timeScale().fitContent();
     }
 
@@ -611,15 +585,14 @@
 
         const last = list[list.length - 1];
         if (nowSec - last.time >= 60) {
-          const newCandle = {
+          list.push({
             time: last.time + 60,
             open: last.close,
             high: Math.max(last.close, newPrice),
             low: Math.min(last.close, newPrice),
             close: newPrice,
             volume: Math.round(5 + Math.random() * 40)
-          };
-          list.push(newCandle);
+          });
           if (list.length > 90) list.shift();
         } else {
           last.close = newPrice;
@@ -642,15 +615,13 @@
           document.getElementById('chart-price').textContent = fmtMXN(coin.price);
           const chEl = document.getElementById('chart-change');
           chEl.textContent = (coin.change >= 0 ? '+' : '') + coin.change.toFixed(2) + '%';
-          chEl.className = `text-xs font-semibold px-2 py-0.5 rounded-md ${
-            coin.change >= 0 ? 'bg-emerald-950 text-emerald-400' : 'bg-red-950 text-red-400'
-          }`;
+          chEl.className = 'text-xs font-semibold px-2 py-0.5 rounded-md ' +
+            (coin.change >= 0 ? 'bg-emerald-950 text-emerald-400' : 'bg-red-950 text-red-400');
         }
       });
       renderPortfolioAndMarket();
     }
 
-    // ================= RENDERIZADO DE INTERFAZ =================
     function renderPortfolioAndMarket() {
       const acc = getCurrentAccount();
       if (!acc) return;
@@ -666,21 +637,17 @@
       grid.innerHTML = Object.keys(COINS).map((s) => {
         const c = COINS[s];
         const up = c.change >= 0;
-        return `
-          <button onclick="selectChartCoin('${s}')" class="card text-left rounded-2xl p-4 hover:border-violet-500/70 transition ${selectedChartCoin === s ? 'border-violet-500' : ''}">
-            <div class="flex items-center justify-between mb-3">
-              <div class="flex items-center gap-2.5">
-                <span class="w-9 h-9 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center font-bold text-violet-400">${c.icon}</span>
-                <div>
-                  <p class="text-sm font-bold text-white">${c.name}</p>
-                  <p class="text-xs text-zinc-500">${c.symbol}</p>
-                </div>
-              </div>
-              <span class="text-xs font-semibold ${up ? 'text-emerald-400' : 'text-red-400'}">${up ? '+' : ''}${c.change.toFixed(2)}%</span>
-            </div>
-            <p class="text-base font-extrabold text-white">${fmtMXN(c.price)}</p>
-            <p class="text-[11px] text-zinc-500 mt-1">Tienes: ${fmtCrypto(acc.balances[s])} ${c.symbol}</p>
-          </button>`;
+        return '<button type="button" onclick="selectChartCoin(\'' + s + '\')" class="card text-left rounded-2xl p-4 hover:border-violet-500/70 transition ' + (selectedChartCoin === s ? 'border-violet-500' : '') + '">' +
+          '<div class="flex items-center justify-between mb-3">' +
+            '<div class="flex items-center gap-2.5">' +
+              '<span class="w-9 h-9 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center font-bold text-violet-400">' + c.icon + '</span>' +
+              '<div><p class="text-sm font-bold text-white">' + c.name + '</p><p class="text-xs text-zinc-500">' + c.symbol + '</p></div>' +
+            '</div>' +
+            '<span class="text-xs font-semibold ' + (up ? 'text-emerald-400' : 'text-red-400') + '">' + (up ? '+' : '') + c.change.toFixed(2) + '%</span>' +
+          '</div>' +
+          '<p class="text-base font-extrabold text-white">' + fmtMXN(c.price) + '</p>' +
+          '<p class="text-[11px] text-zinc-500 mt-1">Tienes: ' + fmtCrypto(acc.balances[s]) + ' ' + c.symbol + '</p>' +
+        '</button>';
       }).join('');
     }
 
@@ -689,52 +656,28 @@
       if (!acc) return;
       renderPortfolioAndMarket();
 
-      // Wallet
       const walletEl = document.getElementById('wallet-list');
-      let walletHtml = `
-        <div class="py-4 flex items-center justify-between">
-          <div>
-            <p class="font-bold text-white">Pesos Mexicanos (MXN)</p>
-            <p class="text-xs text-zinc-500">Saldo disponible</p>
-          </div>
-          <p class="font-extrabold text-white">${fmtMXN(acc.mxn)}</p>
-        </div>`;
+      let walletHtml = '<div class="py-4 flex items-center justify-between"><div><p class="font-bold text-white">Pesos Mexicanos (MXN)</p><p class="text-xs text-zinc-500">Saldo disponible</p></div><p class="font-extrabold text-white">' + fmtMXN(acc.mxn) + '</p></div>';
       Object.keys(COINS).forEach((s) => {
         const bal = acc.balances[s] || 0;
-        walletHtml += `
-          <div class="py-4 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-              <span class="w-9 h-9 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center font-bold text-violet-400">${COINS[s].icon}</span>
-              <div>
-                <p class="font-bold text-white">${COINS[s].name}</p>
-                <p class="text-xs text-zinc-500">${s}</p>
-              </div>
-            </div>
-            <div class="text-right">
-              <p class="font-bold text-white">${fmtCrypto(bal)} ${s}</p>
-              <p class="text-xs text-zinc-400">${fmtMXN(bal * COINS[s].price)}</p>
-            </div>
-          </div>`;
+        walletHtml += '<div class="py-4 flex items-center justify-between">' +
+          '<div class="flex items-center gap-3">' +
+            '<span class="w-9 h-9 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center font-bold text-violet-400">' + COINS[s].icon + '</span>' +
+            '<div><p class="font-bold text-white">' + COINS[s].name + '</p><p class="text-xs text-zinc-500">' + s + '</p></div>' +
+          '</div>' +
+          '<div class="text-right"><p class="font-bold text-white">' + fmtCrypto(bal) + ' ' + s + '</p><p class="text-xs text-zinc-400">' + fmtMXN(bal * COINS[s].price) + '</p></div>' +
+        '</div>';
       });
       walletEl.innerHTML = walletHtml;
 
-      // Historial
       const histEl = document.getElementById('history-list');
       if (!acc.history.length) {
         histEl.innerHTML = '<p class="text-sm text-zinc-500 py-8 text-center">Aún no tienes movimientos registrados.</p>';
       } else {
-        histEl.innerHTML = acc.history.map((h) => `
-          <div class="py-3.5 flex items-center justify-between gap-3">
-            <div>
-              <span class="inline-block text-[11px] font-bold px-2 py-0.5 rounded-md mr-2 ${
-                h.type === 'Compra' ? 'bg-emerald-950 text-emerald-400' :
-                h.type === 'Venta' ? 'bg-red-950 text-red-400' : 'bg-violet-950 text-violet-300'
-              }">${h.type}</span>
-              <span class="text-sm font-semibold text-white">${h.detail}</span>
-              <p class="text-xs text-zinc-500 mt-1">${h.date}</p>
-            </div>
-            <span class="text-xs text-emerald-400 font-medium">0% fee</span>
-          </div>`).join('');
+        histEl.innerHTML = acc.history.map((h) => {
+          const badge = h.type === 'Compra' ? 'bg-emerald-950 text-emerald-400' : (h.type === 'Venta' ? 'bg-red-950 text-red-400' : 'bg-violet-950 text-violet-300');
+          return '<div class="py-3.5 flex items-center justify-between gap-3"><div><span class="inline-block text-[11px] font-bold px-2 py-0.5 rounded-md mr-2 ' + badge + '">' + h.type + '</span><span class="text-sm font-semibold text-white">' + h.detail + '</span><p class="text-xs text-zinc-500 mt-1">' + h.date + '</p></div><span class="text-xs text-emerald-400 font-medium">0% fee</span></div>';
+        }).join('');
       }
 
       updateBuyPreview();
@@ -742,7 +685,6 @@
       updateSwapPreview();
     }
 
-    // ================= OPERACIONES (0% COMISIÓN) =================
     function setBuyPct(pct) {
       const acc = getCurrentAccount();
       document.getElementById('buy-amount').value = (acc.mxn * pct).toFixed(2);
@@ -755,7 +697,7 @@
       const sym = document.getElementById('buy-coin').value;
       const mxn = parseFloat(document.getElementById('buy-amount').value) || 0;
       const qty = mxn / COINS[sym].price;
-      document.getElementById('buy-receive').textContent = ${fmtCrypto(qty)} ${sym};
+      document.getElementById('buy-receive').textContent = fmtCrypto(qty) + ' ' + sym;
     }
     function executeBuy() {
       const acc = getCurrentAccount();
@@ -770,12 +712,12 @@
         u.balances[sym] = (u.balances[sym] || 0) + qty;
         u.history.unshift({
           type: 'Compra',
-          detail: +${fmtCrypto(qty)} ${sym} por ${fmtMXN(mxn)},
+          detail: '+' + fmtCrypto(qty) + ' ' + sym + ' por ' + fmtMXN(mxn),
           date: new Date().toLocaleString('es-MX')
         });
       });
       document.getElementById('buy-amount').value = '';
-      showToast(Compraste ${fmtCrypto(qty)} ${sym} sin comisiones);
+      showToast('Compraste ' + fmtCrypto(qty) + ' ' + sym + ' sin comisiones');
     }
 
     function setSellPct(pct) {
@@ -789,7 +731,7 @@
       if (!acc) return;
       const sym = document.getElementById('sell-coin').value;
       const avail = acc.balances[sym] || 0;
-      document.getElementById('sell-coin-avail').textContent = ${fmtCrypto(avail)} ${sym};
+      document.getElementById('sell-coin-avail').textContent = fmtCrypto(avail) + ' ' + sym;
       const qty = parseFloat(document.getElementById('sell-amount').value) || 0;
       document.getElementById('sell-receive').textContent = fmtMXN(qty * COINS[sym].price);
     }
@@ -799,7 +741,7 @@
       const qty = parseFloat(document.getElementById('sell-amount').value);
       const avail = acc.balances[sym] || 0;
       if (!qty || qty <= 0) return showToast('Ingresa una cantidad válida.', true);
-      if (qty > avail + 1e-12) return showToast(No tienes suficiente ${sym}., true);
+      if (qty > avail + 1e-12) return showToast('No tienes suficiente ' + sym + '.', true);
 
       const mxn = qty * COINS[sym].price;
       updateCurrentAccount((u) => {
@@ -807,12 +749,12 @@
         u.mxn += mxn;
         u.history.unshift({
           type: 'Venta',
-          detail: -${fmtCrypto(qty)} ${sym} por ${fmtMXN(mxn)},
+          detail: '-' + fmtCrypto(qty) + ' ' + sym + ' por ' + fmtMXN(mxn),
           date: new Date().toLocaleString('es-MX')
         });
       });
       document.getElementById('sell-amount').value = '';
-      showToast(Vendiste ${fmtCrypto(qty)} ${sym} por ${fmtMXN(mxn)});
+      showToast('Vendiste ' + fmtCrypto(qty) + ' ' + sym + ' por ' + fmtMXN(mxn));
     }
 
     function setSwapMax() {
@@ -826,10 +768,10 @@
       if (!acc) return;
       const from = document.getElementById('swap-from').value;
       const to = document.getElementById('swap-to').value;
-      document.getElementById('swap-avail').textContent = ${fmtCrypto(acc.balances[from] || 0)} ${from};
+      document.getElementById('swap-avail').textContent = fmtCrypto(acc.balances[from] || 0) + ' ' + from;
       const qty = parseFloat(document.getElementById('swap-amount').value) || 0;
       const out = (qty * COINS[from].price) / COINS[to].price;
-      document.getElementById('swap-receive').textContent = ${fmtCrypto(out)} ${to};
+      document.getElementById('swap-receive').textContent = fmtCrypto(out) + ' ' + to;
     }
     function executeSwap() {
       const acc = getCurrentAccount();
@@ -839,7 +781,7 @@
       const qty = parseFloat(document.getElementById('swap-amount').value);
       const avail = acc.balances[from] || 0;
       if (!qty || qty <= 0) return showToast('Ingresa una cantidad válida.', true);
-      if (qty > avail + 1e-12) return showToast(Saldo insuficiente de ${from}., true);
+      if (qty > avail + 1e-12) return showToast('Saldo insuficiente de ' + from + '.', true);
 
       const out = (qty * COINS[from].price) / COINS[to].price;
       updateCurrentAccount((u) => {
@@ -847,15 +789,14 @@
         u.balances[to] = (u.balances[to] || 0) + out;
         u.history.unshift({
           type: 'Intercambio',
-          detail: ${fmtCrypto(qty)} ${from} → ${fmtCrypto(out)} ${to},
+          detail: fmtCrypto(qty) + ' ' + from + ' → ' + fmtCrypto(out) + ' ' + to,
           date: new Date().toLocaleString('es-MX')
         });
       });
       document.getElementById('swap-amount').value = '';
-      showToast(Intercambio completado: ${fmtCrypto(out)} ${to});
+      showToast('Intercambio completado: ' + fmtCrypto(out) + ' ' + to);
     }
 
-    // ================= INICIALIZACIÓN =================
     async function initApp() {
       initChart();
       await Promise.all(Object.keys(COINS).map((s) => loadCoinCandles(s)));
